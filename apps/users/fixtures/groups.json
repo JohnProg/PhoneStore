@@ -1,0 +1,112 @@
+[
+  {
+    "fields": {
+      "name": "gestor",
+      "permissions": [
+        ["view_skill", "users", "skills"],
+        ["add_skills", "users", "skills"],
+        ["change_skills", "users", "skills"],
+        ["delete_skills", "users", "skills"],
+        ["view_user", "users", "user"],
+        ["change_user", "users", "user"],
+        ["view_contact_person", "users", "contactperson"],
+        ["view_team_temp", "users", "teamtemp"],
+        
+        ["view_check_list", "checklist", "checklist"],
+        
+        ["view_calendar", "calendar", "calendar"],
+        ["view_calendar_detail", "calendar", "calendardetail"],
+        
+        ["view_comment_card", "kanban", "commentcard"],
+        ["view_sub_card", "kanban", "subcard"],
+        ["view_material", "kanban", "material"],
+        ["view_tag", "kanban", "tag"],
+        ["view_list", "kanban", "list"],
+        ["view_card", "kanban", "card"],
+        ["view_board", "kanban", "board"],
+
+        ["view_application", "projects", "application"],
+        ["view_category", "projects", "category"],
+        ["view_project", "projects", "project"],
+        ["add_project", "projects", "project"],
+        ["change_project", "projects", "project"],
+        ["delete_project", "projects", "project"],
+        ["view_project_diagram", "projects", "projectdiagram"],
+        ["view_workflow_detail", "projects", "projectdiagramdetail"],
+
+        ["view_diagram", "workflow", "diagram"],
+        ["change_diagram", "workflow", "diagram"]
+
+      ]
+    },
+    "model": "auth.group",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "name": "desarrollador",
+      "permissions": [
+        ["view_skill", "users", "skills"],
+        ["add_skills", "users", "skills"],
+        ["change_skills", "users", "skills"],
+        ["delete_skills", "users", "skills"],
+        ["view_user", "users", "user"],
+        ["change_user", "users", "user"],
+        ["view_contact_person", "users", "contactperson"],
+        ["view_check_list", "checklist", "checklist"],
+        ["view_comment_card", "kanban", "commentcard"],
+        ["view_sub_card", "kanban", "subcard"],
+        ["view_material", "kanban", "material"],
+        ["view_tag", "kanban", "tag"],
+        ["view_list", "kanban", "list"],
+        ["view_card", "kanban", "card"],
+        ["view_board", "kanban", "board"],
+        ["view_project", "projects", "project"]
+      ]
+    },
+    "model": "auth.group",
+    "pk": 2
+  },
+  {
+    "fields": {
+      "name": "diseñador",
+      "permissions": [
+        ["view_skill", "users", "skills"],
+        ["add_skills", "users", "skills"],
+        ["change_skills", "users", "skills"],
+        ["delete_skills", "users", "skills"],
+        ["view_user", "users", "user"],
+        ["change_user", "users", "user"],
+        ["view_contact_person", "users", "contactperson"],
+        ["view_check_list", "checklist", "checklist"],
+        ["view_comment_card", "kanban", "commentcard"],
+        ["view_sub_card", "kanban", "subcard"],
+        ["view_material", "kanban", "material"],
+        ["view_tag", "kanban", "tag"],
+        ["view_list", "kanban", "list"],
+        ["view_card", "kanban", "card"],
+        ["view_board", "kanban", "board"],
+        ["view_project", "projects", "project"]
+      ]
+    },
+    "model": "auth.group",
+    "pk": 3
+  },
+  {
+    "fields": {
+      "name": "cliente",
+      "permissions": [
+        ["view_skill", "users", "skills"],
+        ["add_skills", "users", "skills"],
+        ["change_skills", "users", "skills"],
+        ["delete_skills", "users", "skills"],
+        ["view_user", "users", "user"],
+        ["change_user", "users", "user"],
+        ["view_contact_person", "users", "contactperson"],
+        ["view_project", "projects", "project"]
+      ]
+    },
+    "model": "auth.group",
+    "pk": 4
+  }
+]

@@ -1,0 +1,38 @@
+{% load static %}
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+        {% block title %}Catálogo{% endblock title %}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block meta %}
+    <meta name="title" content="catalogo">
+    {% endblock meta %}
+
+    {% block styles %}
+        <link rel="stylesheet" href="{% static 'public/assets/stylesheets/plugins.min.css' %}">
+        <link rel="stylesheet" href="{% static 'public/assets/stylesheets/app.min.css' %}">
+        <link rel="shortcut icon" href="{% static 'images/user-default.png' %}">
+    {% endblock styles %}
+</head>
+
+<body>
+<!--[if lt IE 10]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> to improve your experience.</p>
+<![endif]-->
+<div class="container">
+    {% block content %}{% endblock content %}
+</div>
+
+
+{% block scripts %}
+    <script src="{% static 'public/assets/javascript/plugins.min.js' %}"></script>
+    <script src="{% static 'public/assets/javascript/bundle.min.js' %}"></script>
+{% endblock scripts %}
+</body>
+</html>

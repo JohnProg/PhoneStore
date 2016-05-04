@@ -1,0 +1,16 @@
+[
+  {
+    "fields": {
+      "org_ruc": "12345678901",
+      "org_name": "lucuma labs",
+      "logo": "",
+      "telephone": "2456787",
+      "email": "info@lucumalabs.com",
+      "web_site_url": "https://www.lucumalabs.com/",
+      "created": "2015-07-09T03:10:47.382Z",
+      "modified": "2015-07-09T03:10:47.382Z"
+    },
+    "model": "users.organization",
+    "pk": 1
+  }
+]
