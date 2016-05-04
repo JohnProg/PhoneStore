@@ -14,7 +14,7 @@ def download_loc(instance, filename):
 
 class Brand(models.Model):
     """
-    ProductFeature model
+    Brand model
     """
     title = models.CharField(
         max_length=80,

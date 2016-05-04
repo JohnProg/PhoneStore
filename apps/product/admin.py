@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 # Register your models here.
-from apps.product.models import Product, ProductFeature
+from apps.product.models import Product, ProductFeature, Brand
 
 
 @admin.register(Product)
@@ -13,5 +13,11 @@ class StoreAdmin(admin.ModelAdmin):
 
 @admin.register(ProductFeature)
 class StoreAdmin(admin.ModelAdmin):
+    list_display = ('title', 'is_active',)
+    list_filter = ('is_active',)
+
+
+@admin.register(Brand)
+class BrandAdmin(admin.ModelAdmin):
     list_display = ('title', 'is_active',)
     list_filter = ('is_active',)

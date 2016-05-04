@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@^dgmj)ud$^m236dgz419&=zd=vuz12^gj%$mon6$)p)3%2nu5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -112,8 +112,8 @@ else:
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': os.environ.get('RDS_DB_NAME', 'catalogo'),
-            'USER': os.environ.get('RDS_USERNAME', 'johnmachahuay'),
-            'PASSWORD': os.environ.get('RDS_PASSWORD', ''),
+            'USER': os.environ.get('RDS_USERNAME', 'hello_django'),
+            'PASSWORD': os.environ.get('RDS_PASSWORD', 'h3ll0_dj4ng0'),
             'HOST': os.environ.get('RDS_HOSTNAME', 'localhost'),
             'PORT': os.environ.get('RDS_PORT', '5432')
         }
