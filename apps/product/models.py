@@ -38,42 +38,10 @@ class Brand(models.Model):
         verbose_name_plural = "Marcas"
 
 
-class ProductFeature(models.Model):
-    """
-    ProductFeature model
-    """
-    title = models.CharField(
-        max_length=80,
-        verbose_name=_(u'Nombre de la característica')
-    )
-    is_active = models.BooleanField(
-        choices=STATUS_CHOICES,
-        verbose_name=_(u'Activo'),
-        default=STATUS_ACTIVE
-    )
-
-    def __unicode__(self):
-        return unicode(self.title)
-
-    def __str__(self):
-        return unicode(self).encode('utf-8')
-
-    class Meta:
-        db_table = 'feature'
-        verbose_name = "ProductFeature"
-        verbose_name_plural = "ProductFeatures"
-
-
 class Product(models.Model):
     """
     Product model
     """
-    features = models.ManyToManyField(
-        ProductFeature,
-        related_name='features',
-        verbose_name=_(u'Característica'),
-        blank=True
-    )
     brand = models.ForeignKey(
         Brand,
         verbose_name=_(u'Marca'),
@@ -114,3 +82,38 @@ class Product(models.Model):
         db_table = 'product'
         verbose_name = "Producto"
         verbose_name_plural = "Productos"
+
+
+class ProductFeature(models.Model):
+    """
+    ProductFeature model
+    """
+    product = models.ForeignKey(
+        Product,
+        verbose_name=_(u'Producto'),
+        blank=True
+    )
+    title = models.CharField(
+        max_length=120,
+        verbose_name=_(u'Nombre de la característica')
+    )
+    description = models.TextField(
+        verbose_name=_(u'Descripción de la característica'),
+        blank=True
+    )
+    is_active = models.BooleanField(
+        choices=STATUS_CHOICES,
+        verbose_name=_(u'Activo'),
+        default=STATUS_ACTIVE
+    )
+
+    def __unicode__(self):
+        return unicode(self.title)
+
+    def __str__(self):
+        return unicode(self).encode('utf-8')
+
+    class Meta:
+        db_table = 'feature'
+        verbose_name = "Característica"
+        verbose_name_plural = "Características"

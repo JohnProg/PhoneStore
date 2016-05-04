@@ -4,12 +4,19 @@ from django.utils.translation import ugettext_lazy as _
 
 from apps.commons.utils.constants import STATUS_CHOICES, STATUS_ACTIVE
 from django.conf import settings
+from apps.product.models import Product
 
 
 class Store(models.Model):
     """
     Organization model
     """
+    products = models.ManyToManyField(
+        Product,
+        related_name='products',
+        verbose_name=_(u'Productos'),
+        blank=True
+    )
     user = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
         related_name='users',

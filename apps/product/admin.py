@@ -5,16 +5,16 @@ from apps.product.models import Product, ProductFeature, Brand
 
 
 @admin.register(Product)
-class StoreAdmin(admin.ModelAdmin):
+class ProductAdmin(admin.ModelAdmin):
     list_display = ('title', 'frontal_image', 'back_image', 'is_active',)
     list_filter = ('is_active',)
     search_fields = ['title', 'is_active']
 
 
 @admin.register(ProductFeature)
-class StoreAdmin(admin.ModelAdmin):
-    list_display = ('title', 'is_active',)
-    list_filter = ('is_active',)
+class ProductFeatureAdmin(admin.ModelAdmin):
+    list_display = ('product', 'title', 'is_active',)
+    list_filter = ('is_active', 'product')
 
 
 @admin.register(Brand)
