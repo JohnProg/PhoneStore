@@ -64,3 +64,4 @@ node_js/
 *.pyc
 
 collected_files/*
+media/*
