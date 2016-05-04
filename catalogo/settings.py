@@ -162,3 +162,5 @@ GRAPPELLI_ADMIN_TITLE = 'Catalogo'
 # Auth
 
 AUTH_USER_MODEL = 'users.User'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'collected_files')
