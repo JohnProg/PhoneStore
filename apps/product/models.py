@@ -7,11 +7,11 @@ from apps.commons.utils.validators import get_name_token
 
 
 def download_loc(instance, filename):
-    return "media/product/%s" % get_name_token(filename)
+    return "product/%s" % get_name_token(filename)
 
 
 def download_loc2(instance, filename):
-    return "media/brand/%s" % get_name_token(filename)
+    return "brand/%s" % get_name_token(filename)
 
 
 class Brand(models.Model):
