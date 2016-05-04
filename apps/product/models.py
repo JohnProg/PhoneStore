@@ -3,16 +3,15 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from apps.commons.utils.constants import STATUS_CHOICES, STATUS_ACTIVE
-from django.conf import settings
 from apps.commons.utils.validators import get_name_token
 
 
 def download_loc(instance, filename):
-    return "product/%s" % get_name_token(filename)
+    return "media/product/%s" % get_name_token(filename)
 
 
 def download_loc2(instance, filename):
-    return "brand/%s" % get_name_token(filename)
+    return "media/brand/%s" % get_name_token(filename)
 
 
 class Brand(models.Model):
