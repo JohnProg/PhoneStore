@@ -60,3 +60,5 @@ static/node_modules/
 node_js/node_modules/
 media/
 node_js/
+
+*.pyc
