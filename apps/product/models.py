@@ -4,12 +4,15 @@ from django.utils.translation import ugettext_lazy as _
 
 from apps.commons.utils.constants import STATUS_CHOICES, STATUS_ACTIVE
 from django.conf import settings
-
 from apps.commons.utils.validators import get_name_token
 
 
 def download_loc(instance, filename):
-    return "user/%s" % get_name_token(filename)
+    return "product/%s" % get_name_token(filename)
+
+
+def download_loc2(instance, filename):
+    return "brand/%s" % get_name_token(filename)
 
 
 class Brand(models.Model):
@@ -19,6 +22,11 @@ class Brand(models.Model):
     title = models.CharField(
         max_length=80,
         verbose_name=_(u'Nombre de la marca')
+    )
+    logo = models.ImageField(
+        upload_to=download_loc2,
+        blank=True, null=True,
+        verbose_name=_(u'Logo')
     )
     is_active = models.BooleanField(
         choices=STATUS_CHOICES,
