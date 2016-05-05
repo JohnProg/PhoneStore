@@ -97,6 +97,7 @@ class ProductFeature(models.Model):
     """
     product = models.ForeignKey(
         Product,
+        related_name='features',
         verbose_name=_(u'Producto'),
         blank=True
     )

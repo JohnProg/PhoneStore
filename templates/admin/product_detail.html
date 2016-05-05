@@ -1,0 +1,137 @@
+{% extends 'base.html' %}
+{% block content %}
+    <br>
+    <br>
+    <section class="container">
+        <div class="well well-sm">
+            <h3><a href="{% url 'list_product' brand.id %}"><i class="fa fa-2x fa-angle-left"></i></a>
+                <b>Lista de Marcas</b></h3>
+        </div>
+        <section class="row">
+
+        <div class="col-md-12 container-slider">
+            <div class="carousel slide"
+                 data-ride="carousel"
+                 id="quote-carousel">
+                <!-- Carousel Slides / Quotes -->
+                <div class="carousel-inner text-center">
+                    <!-- Quote 1 -->
+                    <div class="parent-item item" style="display: block">
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+                                <div class="row">
+                                    <div class="col-sm-7">
+                                        <h2>{{ product.title }}</h2>
+                                        {% for feature in product.features.all %}
+                                            {% if feature.is_active %}
+                                                <h2 class="size-22"><b>{{ feature.title }}</b>: {{ feature.description }}</h2>
+                                                <p></p>
+                                            {% endif %}
+                                        {% endfor %}
+                                        <ul class="container-media-product text-left">
+                                                <li>
+                                                    <a href=""
+                                                        class="active" data-slide-to="0" data-target="#article-photo-carousel-1">
+                                                        <img class="img-responsive"
+                                                             width="50"
+                                                             height="50"
+                                                             src="{{ MEDIA_URL }}{{ product.frontal_image }}"
+                                                             alt="">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href=""
+                                                        data-slide-to="1" data-target="#article-photo-carousel-1">
+                                                        <img class="img-responsive"
+                                                             width="50"
+                                                             height="50"
+                                                             src="{{ MEDIA_URL }}{{ product.back_image }}"
+                                                             alt="">
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href=""
+                                                       data-title="{{ product.title }}"
+                                                       data-video="{{ product.video }}"
+                                                       class="showVideo"
+                                                       data-toggle="modal" data-target="#myModal"
+                                                       data-slide-to="2" data-target="#article-photo-carousel-1">
+                                                        <img class="img-responsive"
+                                                             width="50"
+                                                             height="50"
+                                                             src="https://s.ytimg.com/yts/img/favicon_144-vflWmzoXw.png"
+                                                             alt="">
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                    </div>
+                                    <div class="col-sm-5">
+                                        <div class="carousel slide"
+                                             data-ride="carousel"
+                                             data-interval="false"
+                                             id="article-photo-carousel-1">
+                                          <!-- Wrapper for slides -->
+                                          <div class="carousel-inner cont-slider">
+
+                                            <div class="item active">
+                                              <img alt=""
+                                                   title=""
+                                                   width="450"
+                                                   height="800"
+                                                   src="{{ MEDIA_URL }}{{ product.frontal_image }}">
+                                            </div>
+                                            <div class="item">
+                                              <img alt=""
+                                                   width="450"
+                                                   height="800"
+                                                   title=""
+                                                   src="{{ MEDIA_URL }}{{ product.back_image }}">
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </section>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body videoWrapper">
+        <iframe width="560" height="349" src="" frameborder="0" allowfullscreen></iframe>
+      </div>
+      <div class="modal-footer">
+          <br>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}
+
+{% block after_script %}
+<script>
+    function init () {
+        $('.showVideo').on('click', function (e) {
+            var title = $(this).data('title'),
+                video = $(this).data('video');
+
+            $('#myModalLabel').text(title);
+            $('.videoWrapper iframe').attr('src', video);
+        })
+    }
+
+    $(document).on('ready', init)
+
+</script>
+{% endblock after_script %}

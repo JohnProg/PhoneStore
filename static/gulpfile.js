@@ -86,15 +86,15 @@ gulp.task('build-css-lib', function() {
         .pipe(gulp.dest(OUTPUT.routes.stylesheets));
 });
 
-gulp.task('react', function () {
-  return browserify(INPUT.javascript)
-         .transform(babelify)
-         .bundle()
-         .pipe(source(OUTPUT.names.appjs))
-         .pipe(buffer())
-         .pipe(plugins.uglify())
-         .pipe(gulp.dest(OUTPUT.routes.javascript));
-});
+//gulp.task('react', function () {
+//  return browserify(INPUT.javascript)
+//         .transform(babelify)
+//         .bundle()
+//         .pipe(source(OUTPUT.names.appjs))
+//         .pipe(buffer())
+//         .pipe(plugins.uglify())
+//         .pipe(gulp.dest(OUTPUT.routes.javascript));
+//});
 
 gulp.task('build-img', function() {
     return gulp.src(INPUT.img)
@@ -114,8 +114,8 @@ gulp.task('build-font', function() {
         .pipe(gulp.dest(OUTPUT.routes.font));
 });
 
-gulp.task('watch', ['react', 'build-js-lib','build-css', 'build-css-lib', 'build-img', 'build-font'], function () {
-    gulp.watch(INPUT.vendorjs, ['react']);
+gulp.task('watch', ['build-js-lib','build-css', 'build-css-lib', 'build-img', 'build-font'], function () {
+    //gulp.watch(INPUT.vendorjs, ['react']);
     gulp.watch(INPUT.vendorjs, ['build-js-lib']);
     gulp.watch(INPUT.stylesheets, ['build-css']);
     gulp.watch(INPUT.vendorcss, ['build-css-lib']);

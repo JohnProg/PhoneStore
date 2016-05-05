@@ -23,14 +23,12 @@
                                     <div class="row">
                                         <div class="col-sm-7">
                                             <h2>{{ product.title }}</h2>
-                                            <h3>Dimensiones</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, cupiditate,
-                                                dolorum, dicta omnis inventore error quas doloribus.</p>
-                                            <h3>Dimensiones</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, cupiditate,
-                                                dolorum, dicta omnis inventore error quas doloribus.</p>
-                                            <h3>Dimensiones</h3>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio.</p>
+                                            {% for feature in product.features.all %}
+                                                {% if feature.is_active %}
+                                                    <h2 class="size-22"><b>{{ feature.title }}</b>: {{ feature.description }}</h2>
+                                                    <p></p>
+                                                {% endif %}
+                                            {% endfor %}
                                             <ul class="container-media-product text-left">
                                                     <li>
                                                         <a href=""
@@ -54,6 +52,9 @@
                                                     </li>
                                                     <li>
                                                         <a href=""
+                                                           data-title="{{ product.title }}"
+                                                           data-video="{{ product.video }}"
+                                                           class="showVideo"
                                                            data-toggle="modal" data-target="#myModal"
                                                            data-slide-to="2" data-target="#article-photo-carousel-{{ forloop.counter }}">
                                                             <img class="img-responsive"
@@ -106,7 +107,7 @@
     </section>
     <section class="row">
         <div class="col-sm-12">
-            <a href="{% url 'list_product' %}"
+            <a href="{% url 'list_brand' %}"
                class="pull-left btn btn-lg btn-success btn-more">Ver más <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </section>
@@ -122,7 +123,7 @@
         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
       </div>
       <div class="modal-body videoWrapper">
-        <iframe width="560" height="349" src="https://www.youtube.com/embed/A63VwWz1ij0" frameborder="0" allowfullscreen></iframe>
+        <iframe width="560" height="349" src="" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="modal-footer">
           <br>
@@ -131,3 +132,20 @@
   </div>
 </div>
 {% endblock content %}
+
+{% block after_script %}
+<script>
+    function init () {
+        $('.showVideo').on('click', function (e) {
+            var title = $(this).data('title'),
+                video = $(this).data('video');
+
+            $('#myModalLabel').text(title);
+            $('.videoWrapper iframe').attr('src', video);
+        })
+    }
+
+    $(document).on('ready', init)
+
+</script>
+{% endblock after_script %}

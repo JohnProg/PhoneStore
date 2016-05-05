@@ -15,6 +15,14 @@ h2, h3 {
   text-align: left;
 }
 
+h3 b {
+        position: relative;
+    top: -7px;
+    left: 10px;
+}
+h3 {
+    margin-top: 10px;
+}
 h2 {
   margin-bottom: 30px;
 }
@@ -22,7 +30,9 @@ h2 {
 .container-slider p, .container-slider h3, .container-slider h2 {
   color: white;
 }
-
+.color-white {
+    color: white;
+}
 .parent-item h2 {
     margin-top: 0;
 }
@@ -31,7 +41,13 @@ ul {
     padding: 0;
     list-style: none;
 }
-
+.size-22 {
+    font-size: 22px;
+}
+.well.well-sm {
+    padding: 0;
+    padding-left: 10px;
+}
 .rounded{
   border-radius: 50%;
 }
@@ -90,6 +106,7 @@ p {
 .cont-slider img {
     min-width: 400px;
     height: 500px;
+    max-height: 500px;
     float: left;
     margin-left: -25px;
 }
