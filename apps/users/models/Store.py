@@ -2,9 +2,10 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
-from apps.commons.utils.constants import STATUS_CHOICES, STATUS_ACTIVE
+from apps.commons.utils.constants import STATUS_CHOICES, STATUS_ACTIVE, VISIBLE_CHOICES, NO_VISIBLE
 from django.conf import settings
 from apps.product.models import Product
+from apps.users.models.StoreProduct import StoreProduct
 
 
 class Store(models.Model):
@@ -13,6 +14,7 @@ class Store(models.Model):
     """
     products = models.ManyToManyField(
         Product,
+        through=StoreProduct,
         related_name='products',
         verbose_name=_(u'Productos'),
         blank=True

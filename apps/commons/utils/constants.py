@@ -21,3 +21,11 @@ STATUS_CHOICES = (
     (STATUS_ACTIVE, _('Activo')),
     (STATUS_INACTIVE, _('No Activo'))
 )
+
+VISIBLE = True
+NO_VISIBLE = False
+
+VISIBLE_CHOICES = (
+    (VISIBLE, _('Visible')),
+    (NO_VISIBLE, _('No Visible'))
+)

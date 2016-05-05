@@ -4,6 +4,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import Group
 
 from apps.users.models.Store import Store
+from apps.users.models.StoreProduct import StoreProduct
 from apps.users.models.User import User
 
 
@@ -36,8 +37,15 @@ admin.site.unregister(Group)
 admin.site.register(User, MyUserAdmin)
 
 
-@admin.register(Store)
+class StoreProductInline(admin.TabularInline):
+    model = StoreProduct
+    extra = 1
+
+
 class StoreAdmin(admin.ModelAdmin):
+    inlines = (StoreProductInline,)
     list_display = ('store_name', 'telephone', 'email', 'is_active',)
     list_filter = ('is_active',)
     search_fields = ['store_name', 'email']
+
+admin.site.register(Store, StoreAdmin)
