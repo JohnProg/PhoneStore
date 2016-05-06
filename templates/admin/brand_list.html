@@ -2,25 +2,28 @@
 {% block content %}
     <br>
     <br>
-    <div class="container">
+    <section class="container">
         <div class="well well-sm">
             <h3><a href="{% url 'home' %}"><i class="fa fa-2x fa-angle-left"></i></a>
-                <b>Lista de Marcas</b></h3>
+                <b>Inicio</b></h3>
         </div>
         <div id="brands" class="row list-group">
             {% for brand in brands %}
-                <div class="item  col-xs-4 col-lg-4">
+                <div class="item  col-xs-6 col-sm-4">
                     <div class="thumbnail">
                         <a href="{% url 'list_product' brand.id %}">
                             <img class="group img-responsive list-group-image"
-                             width="200"
-                             height="200"
                              src="{{ MEDIA_URL }}{{ brand.logo }}"
                              alt="" />
                         </a>
                     </div>
                 </div>
             {% endfor %}
+            {% if not brands %}
+                <div class="col-sm-12">
+                    <h3 class="color-white">No se han registrado ninguna marca.</h3>
+                </div>
+            {% endif %}
         </div>
-    </div>
+    </section>
 {% endblock content %}

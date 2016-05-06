@@ -118,20 +118,3 @@
   </div>
 </div>
 {% endblock content %}
-
-{% block after_script %}
-<script>
-    function init () {
-        $('.showVideo').on('click', function (e) {
-            var title = $(this).data('title'),
-                video = $(this).data('video');
-
-            $('#myModalLabel').text(title);
-            $('.videoWrapper iframe').attr('src', video);
-        })
-    }
-
-    $(document).on('ready', init)
-
-</script>
-{% endblock after_script %}

@@ -4,11 +4,13 @@ from rest_framework.decorators import api_view
 from rest_framework.generics import get_object_or_404
 from rest_framework.response import Response
 
+from braces.views import LoginRequiredMixin
+
 from apps.product.models import Product, Brand
 from .serializers import ProductSerializer
 
 
-class IndexPage(ListView):
+class IndexPage(LoginRequiredMixin, ListView):
     model = Product
     context_object_name = 'products'
     template_name = "admin/dashboard.html"
@@ -19,7 +21,7 @@ class IndexPage(ListView):
         return queryset
 
 
-class ProductListPage(ListView):
+class ProductListPage(LoginRequiredMixin, ListView):
     model = Product
     context_object_name = 'products'
     template_name = "admin/product_list.html"
@@ -37,13 +39,8 @@ class ProductListPage(ListView):
         })
         return context
 
-    def get_template_names(self):
-        if not self.request.user.is_authenticated():
-            self.template_name = 'public/login.html'
-        return [self.template_name]
 
-
-class BrandListPage(ListView):
+class BrandListPage(LoginRequiredMixin, ListView):
     model = Brand
     context_object_name = 'brands'
     template_name = "admin/brand_list.html"
@@ -52,13 +49,8 @@ class BrandListPage(ListView):
         queryset = Brand.objects.filter(is_active=True)
         return queryset
 
-    def get_template_names(self):
-        if not self.request.user.is_authenticated():
-            self.template_name = 'public/login.html'
-        return [self.template_name]
 
-
-class ProductDetailPage(TemplateView):
+class ProductDetailPage(LoginRequiredMixin, TemplateView):
     template_name = "admin/product_detail.html"
 
     def get_context_data(self, **kwargs):
@@ -71,10 +63,6 @@ class ProductDetailPage(TemplateView):
         })
         return context
 
-    def get_template_names(self):
-        if not self.request.user.is_authenticated():
-            self.template_name = 'public/login.html'
-        return [self.template_name]
 
 @api_view(['GET'])
 def products(request):

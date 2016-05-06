@@ -65,6 +65,7 @@ class User(AbstractUser):
     def __str__(self):
         return unicode(self).encode('utf-8')
 
+    @property
     def thumbnail(self):
         return MEDIA_URL + '%s' % self.avatar.name if self.avatar.name else STATIC_URL + "public/assets/images/user-default.png"
 

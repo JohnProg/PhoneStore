@@ -13,7 +13,7 @@ var imagemin = require('gulp-imagemin');
 var pngquant = require('imagemin-pngquant');
 
     var INPUT  = {
-      'javascript': 'src/js/app/app.js',
+      'javascript': 'src/js/app/main.js',
       'stylesheets': 'src/css/app/*.css',
       'vendorcss': 'src/css/libs/*.css',
       'vendorjs': [
@@ -96,6 +96,13 @@ gulp.task('build-css-lib', function() {
 //         .pipe(gulp.dest(OUTPUT.routes.javascript));
 //});
 
+gulp.task('build-js', function () {
+    return gulp.src(INPUT.javascript)
+    .pipe(plugins.uglify())
+    .pipe(plugins.concat(OUTPUT.names.appjs))
+    .pipe(gulp.dest(OUTPUT.routes.javascript));
+});
+
 gulp.task('build-img', function() {
     return gulp.src(INPUT.img)
         //.pipe(imagemin({
@@ -114,8 +121,9 @@ gulp.task('build-font', function() {
         .pipe(gulp.dest(OUTPUT.routes.font));
 });
 
-gulp.task('watch', ['build-js-lib','build-css', 'build-css-lib', 'build-img', 'build-font'], function () {
+gulp.task('watch', ['build-js', 'build-js-lib','build-css', 'build-css-lib', 'build-img', 'build-font'], function () {
     //gulp.watch(INPUT.vendorjs, ['react']);
+    gulp.watch(INPUT.appjs, ['build-js']);
     gulp.watch(INPUT.vendorjs, ['build-js-lib']);
     gulp.watch(INPUT.stylesheets, ['build-css']);
     gulp.watch(INPUT.vendorcss, ['build-css-lib']);

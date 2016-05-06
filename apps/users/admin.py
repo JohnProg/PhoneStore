@@ -13,7 +13,7 @@ class MyUserAdmin(UserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('email', 'first_name', 'last_name', 'avatar', 'birth_date', 'dni','telephone', 'cellphone', 'gender',)
+    list_display = ('email', 'first_name', 'last_name', 'imagen')
     list_filter = ('is_active',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
@@ -33,6 +33,12 @@ class MyUserAdmin(UserAdmin):
     ordering = ('email',)
     filter_horizontal = ()
 
+    def imagen(self, user):
+        tag = '<a href="{0}"><img src="{0}" width=50px height=50px/></a>'.format(user.thumbnail)
+        return tag
+
+    imagen.allow_tags = True
+
 admin.site.unregister(Group)
 admin.site.register(User, MyUserAdmin)
 
@@ -44,7 +50,7 @@ class StoreProductInline(admin.TabularInline):
 
 class StoreAdmin(admin.ModelAdmin):
     inlines = (StoreProductInline,)
-    list_display = ('store_name', 'telephone', 'email', 'is_active',)
+    list_display = ('store_name', 'is_active',)
     list_filter = ('is_active',)
     search_fields = ['store_name', 'email']
 

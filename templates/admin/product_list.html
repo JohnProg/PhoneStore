@@ -2,10 +2,10 @@
 {% block content %}
     <br>
     <br>
-    <div class="container">
+    <section class="container">
         <div class="well well-sm">
             <h3><a href="{% url 'list_brand' %}"><i class="fa fa-2x fa-angle-left"></i></a>
-                <b>Lista de Productos de la Marca {{ brand }}</b></h3>
+                <b>Lista de Productos</b></h3>
         </div>
         <div id="products" class="row list-group">
             {% for product in products %}
@@ -13,9 +13,7 @@
                 <div class="thumbnail">
                     <h4 class="group inner list-group-item-heading">{{ product.title }}</h4>
                     <img class="group list-group-image img-responsive"
-                         src="{{ MEDIA_URL }}{{ product.frontal_image }}"
-                         width="100"
-                         height="100"
+                         src="{% if product.frontal_image %}{{ MEDIA_URL }}{{ product.frontal_image }}{% else %}{{ STATIC_URL }}public/assets/images/no-image.png{% endif %}"
                          alt="" />
                     <div class="caption">
 
@@ -31,10 +29,9 @@
             {% endfor %}
             {% if not products %}
                 <div class="col-sm-12">
-                    <h3 class="color-white">No hay productos para esta marca</h3>
+                    <h3 class="color-white">No hay productos para esta marca.</h3>
                 </div>
             {% endif %}
         </div>
-    </div>
-
+    </section>
 {% endblock content %}

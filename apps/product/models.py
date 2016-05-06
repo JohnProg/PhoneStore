@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-
+from catalogo.settings import STATIC_URL, MEDIA_URL
 from apps.commons.utils.constants import STATUS_CHOICES, STATUS_ACTIVE
 from apps.commons.utils.validators import get_name_token
 
@@ -78,6 +78,10 @@ class Product(models.Model):
         verbose_name=_(u'Activo'),
         default=STATUS_ACTIVE
     )
+
+    @property
+    def thumbnail(self):
+        return MEDIA_URL + '%s' % self.frontal_image.name if self.frontal_image.name else STATIC_URL + "public/assets/images/user-default.png"
 
     def __unicode__(self):
         return unicode(self.title)

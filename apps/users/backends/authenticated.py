@@ -1,6 +1,7 @@
 # coding=utf-8
-from django.conf import settings
 from django.contrib.auth import get_user_model
+
+from apps.users.models.User import User
 
 
 class EmailOrUsernameModelBackend(object):
@@ -18,7 +19,7 @@ class EmailOrUsernameModelBackend(object):
             user = get_user_model().objects.get(**kwargs)
             if user.check_password(password):
                 return user
-        except settings.AUTH_USER_MODEL.DoesNotExist:
+        except User.DoesNotExist:
             return None
 
     def get_user(self, username):
