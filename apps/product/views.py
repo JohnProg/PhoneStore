@@ -7,6 +7,8 @@ from rest_framework.response import Response
 from braces.views import LoginRequiredMixin
 
 from apps.product.models import Product, Brand
+from apps.users.models.StoreProduct import StoreProduct
+from apps.users.models.User import User
 from .serializers import ProductSerializer
 
 
@@ -17,7 +19,12 @@ class IndexPage(LoginRequiredMixin, ListView):
     paginate_by = 10
 
     def get_queryset(self):
-        queryset = Product.objects.filter(is_active=True)
+        store = User.objects.get(id=self.request.user.id).stores.first()
+        stores_product = StoreProduct.objects.filter(store=store, is_visible=True)
+        productList = []
+        for store_product in stores_product:
+            productList.append(store_product.product)
+        queryset = productList
         return queryset
 
 

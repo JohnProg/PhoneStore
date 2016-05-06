@@ -20,5 +20,5 @@ class StoreProduct(models.Model):
 
     class Meta:
         db_table = 'store_product'
-        verbose_name = "Tienda Producto"
-        verbose_name_plural = "Tienda Productos"
+        verbose_name = "Productos para el carrusel"
+        verbose_name_plural = "Productos para el carrusel"

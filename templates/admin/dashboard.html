@@ -7,14 +7,16 @@
     <section class="container">
         <div class="row">
             <div class="col-md-12 container-slider">
+            {% if products|length > 1 %}
                 <div class="container-btn-control">
                     <a href="#quote-carousel"
                        data-slide="prev"
                        class="btn btn-lg btn-success rounded"><i class="fa fa-2x fa-arrow-left"></i></a>
                 </div>
+            {% endif %}
                 <div class="carousel slide"
                      data-ride="carousel"
-                     data-interval="false"
+                     data-interval="2000"
                      id="quote-carousel">
                     <!-- Carousel Slides / Quotes -->
                     <div class="carousel-inner text-center">
@@ -28,8 +30,8 @@
                                                 <h2>{{ product.title }}</h2>
                                                 {% for feature in product.features.all %}
                                                     {% if feature.is_active %}
-                                                        <h2 class="size-22"><b>{{ feature.title }}</b>: {{ feature.description }}</h2>
-                                                        <p></p>
+                                                        <p class="size-22"><b>{{ feature.title }}</b>: <span class="size-20">{{ feature.description }}</span></p>
+                                                        <br>
                                                     {% endif %}
                                                 {% endfor %}
                                                 <ul class="container-media-product text-left">
@@ -53,6 +55,7 @@
                                                                      alt="">
                                                             </a>
                                                         </li>
+                                                        {% if product.video %}
                                                         <li>
                                                             <a href=""
                                                                data-title="{{ product.title }}"
@@ -67,6 +70,7 @@
                                                                      alt="">
                                                             </a>
                                                         </li>
+                                                        {% endif %}
                                                     </ul>
                                             </div>
                                             <div class="col-xs-6 col-sm-6">
@@ -101,11 +105,13 @@
                         {% endfor %}
                     </div>
                 </div>
+            {% if products|length > 1 %}
                 <div class="container-btn-control">
                     <a href="#quote-carousel"
                        data-slide="next"
                        class="pull-right btn btn-lg btn-success rounded"><i class="fa fa-2x fa-arrow-right"></i></a>
                 </div>
+            {% endif %}
             </div>
         </div>
         <div class="row">

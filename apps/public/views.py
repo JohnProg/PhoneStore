@@ -20,17 +20,21 @@ def login_author_user(request,
                                    request.GET.get(redirect_field_name, ''))
 
     if request.method == "POST":
-        form = authentication_form(request, data=request.POST)
+        user_data = request.POST
+        form = authentication_form(request, data=user_data)
         if form.is_valid():
+            store = form.get_user().stores.first()
+            if store:
+                # Ensure the user-originating redirection url is safe.
+                if not is_safe_url(url=redirect_to, host=request.get_host()):
+                    redirect_to = resolve_url('/')
 
-            # Ensure the user-originating redirection url is safe.
-            if not is_safe_url(url=redirect_to, host=request.get_host()):
-                redirect_to = resolve_url('/')
-
-            # Okay, security check complete. Log the user in.
-            login(request, form.get_user())
-            messages.success(request, "Se inicio sesión exitosamente.")
-            return HttpResponseRedirect(redirect_to)
+                # Okay, security check complete. Log the user in.
+                login(request, form.get_user())
+                messages.success(request, "Se inicio sesión exitosamente.")
+                return HttpResponseRedirect(redirect_to)
+            else:
+                messages.error(request, "El usuario no pertenece a una tienda.")
         else:
             messages.error(request, "Ingresar correctamente los datos.")
     else:

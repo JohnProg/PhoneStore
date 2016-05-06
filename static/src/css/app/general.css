@@ -43,6 +43,9 @@ ul {
 .size-22 {
     font-size: 22px;
 }
+.size-20 {
+    font-size: 20px;
+}
 .size-12 {
     font-size: 12px;
 }
@@ -144,13 +147,26 @@ p {
 }
 
 #products .thumbnail {
-    min-height: 200px;
+    min-height: 230px;
     overflow: hidden;
-    max-height: 200px;
+    max-height: 230px;
+    position: relative;
 }
 #products .thumbnail > img {
     height: 120px;
 }
 #brands img {
     height: 150px;
+}
+
+.thumbnail .group.inner.list-group-item-heading {
+    padding: 5px;
+}
+.thumbnail .caption {
+    bottom: 0;
+    position: absolute;
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }

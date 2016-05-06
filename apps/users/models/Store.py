@@ -21,7 +21,7 @@ class Store(models.Model):
     )
     user = models.ManyToManyField(
         settings.AUTH_USER_MODEL,
-        related_name='users',
+        related_name='stores',
         verbose_name=_(u'Usuarios'),
         blank=True
     )
