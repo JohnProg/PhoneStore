@@ -3,8 +3,7 @@
 /* General */
 
 body {
-  background: url('../images/background.png');
-  background-size: cover;
+  background: url(../images/background.png) center left
 }
 
 header a {
@@ -104,11 +103,8 @@ p {
   line-height: 3.3;
 }
 .cont-slider img {
-    min-width: 400px;
-    height: 500px;
+    height: 500px !important;
     max-height: 500px;
-    float: left;
-    margin-left: -25px;
 }
 .btn-success {
   background: linear-gradient(to left top, #4cae4c 0%,#61c419 56%);
