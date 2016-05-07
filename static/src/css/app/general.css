@@ -159,6 +159,11 @@ p {
     height: 150px;
 }
 
+.thumbnail {
+    background: transparent;
+    border: none;
+}
+
 .thumbnail .group.inner.list-group-item-heading {
     padding: 5px;
 }
