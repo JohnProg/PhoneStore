@@ -16,7 +16,7 @@
             {% endif %}
                 <div class="carousel slide"
                      data-ride="carousel"
-                     data-interval="2000"
+                     data-interval="7000"
                      id="quote-carousel">
                     <!-- Carousel Slides / Quotes -->
                     <div class="carousel-inner text-center">
@@ -118,6 +118,8 @@
             <div class="col-sm-12">
                 <a href="{% url 'list_brand' %}"
                    class="pull-left btn btn-lg btn-success btn-more">Ver más <i class="fa fa-arrow-circle-right"></i></a>
+                 <a href="{% url 'logout_user' %}"
+                   class="pull-right btn btn-danger btn-more">Cerrar sesión</a>
             </div>
         </div>
         <br>
