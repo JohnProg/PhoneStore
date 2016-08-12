@@ -91,8 +91,8 @@ class Product(models.Model):
 
     class Meta:
         db_table = 'product'
-        verbose_name = "Producto"
-        verbose_name_plural = "Productos"
+        verbose_name = 'Producto'
+        verbose_name_plural = 'Productos'
 
 
 class ProductFeature(models.Model):
@@ -127,5 +127,5 @@ class ProductFeature(models.Model):
 
     class Meta:
         db_table = 'feature'
-        verbose_name = "Característica"
-        verbose_name_plural = "Características"
+        verbose_name = 'Característica'
+        verbose_name_plural = 'Características'

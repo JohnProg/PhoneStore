@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@^dgmj)ud$^m236dgz419&=zd=vuz12^gj%$mon6$)p)3%2nu5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -158,10 +158,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DATE_INPUT_FORMATS = ('%d/%m/%Y','%Y/%m/%d')
-
-# Grappelli
-
-GRAPPELLI_ADMIN_TITLE = 'Catalogo'
 
 # Auth
 

@@ -11,9 +11,9 @@
                 <div class="item  col-xs-6 col-sm-4">
                     <div class="thumbnail">
                         <a href="{% url 'list_product' brand.id %}">
-                            <img class="group img-responsive list-group-image"
-                             src="{{ MEDIA_URL }}{{ brand.logo }}"
-                             alt="" />
+                          <img class="group list-group-image img-responsive"
+                               src="{% if brand.logo %}{{ MEDIA_URL }}{{ brand.logo }}{% else %}{{ STATIC_URL }}public/assets/images/no-image.png{% endif %}"
+                               alt="" />{{ brand.title }}
                         </a>
                     </div>
                 </div>

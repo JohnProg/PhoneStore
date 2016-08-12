@@ -3,7 +3,7 @@
     <br>
     <br>
     <br>
-    <br>    
+    <br>
     <section class="container">
         <div class="row">
             <div class="col-md-12 container-slider">
@@ -41,8 +41,8 @@
                                                                 <img class="img-responsive"
                                                                      width="50"
                                                                      height="50"
-                                                                     src="{{ MEDIA_URL }}{{ product.frontal_image }}"
-                                                                     alt="">
+                                                                     src="{% if product.frontal_image %}{{ MEDIA_URL }}{{ product.frontal_image }}{% else %}{{ STATIC_URL }}public/assets/images/no-image.png{% endif %}"
+                                                                     alt="" />
                                                             </a>
                                                         </li>
                                                         <li>
@@ -51,8 +51,8 @@
                                                                 <img class="img-responsive"
                                                                      width="50"
                                                                      height="50"
-                                                                     src="{{ MEDIA_URL }}{{ product.back_image }}"
-                                                                     alt="">
+                                                                     src="{% if product.back_image %}{{ MEDIA_URL }}{{ product.back_image }}{% else %}{{ STATIC_URL }}public/assets/images/no-image.png{% endif %}"
+                                                                     alt="" />
                                                             </a>
                                                         </li>
                                                         {% if product.video %}
@@ -82,18 +82,16 @@
                                                   <div class="carousel-inner cont-slider">
 
                                                     <div class="item active">
-                                                      <img alt=""
-                                                           title=""
-                                                           width="450"
+                                                      <img width="450"
                                                            height="800"
-                                                           src="{{ MEDIA_URL }}{{ product.frontal_image }}">
+                                                           src="{% if product.frontal_image %}{{ MEDIA_URL }}{{ product.frontal_image }}{% else %}{{ STATIC_URL }}public/assets/images/no-image.png{% endif %}"
+                                                           alt="" />
                                                     </div>
                                                     <div class="item">
-                                                      <img alt=""
-                                                           width="450"
+                                                      <img width="450"
                                                            height="800"
-                                                           title=""
-                                                           src="{{ MEDIA_URL }}{{ product.back_image }}">
+                                                           src="{% if product.back_image %}{{ MEDIA_URL }}{{ product.back_image }}{% else %}{{ STATIC_URL }}public/assets/images/no-image.png{% endif %}"
+                                                           alt="" />
                                                     </div>
                                                   </div>
                                                 </div>

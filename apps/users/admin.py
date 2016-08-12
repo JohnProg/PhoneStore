@@ -9,10 +9,6 @@ from apps.users.models.User import User
 
 
 class MyUserAdmin(UserAdmin):
-
-    # The fields to be used in displaying the User model.
-    # These override the definitions on the base UserAdmin
-    # that reference specific fields on auth.User.
     list_display = ('email', 'first_name', 'last_name', 'imagen')
     list_filter = ('is_active',)
     fieldsets = (
@@ -21,8 +17,6 @@ class MyUserAdmin(UserAdmin):
             'username', 'first_name', 'last_name', 'dni','avatar', 'birth_date', 'telephone', 'cellphone', 'gender', )}),
         ('Permisos', {'fields': ('is_active',)}),
     )
-    # add_fieldsets is not a standard ModelAdmin attribute. UserAdmin
-    # overrides get_fieldsets to use this attribute when creating a user.
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
@@ -50,7 +44,7 @@ class StoreProductInline(admin.TabularInline):
 
 class StoreAdmin(admin.ModelAdmin):
     inlines = (StoreProductInline,)
-    list_display = ('store_name', 'is_active',)
+    list_display = ('store_name', 'telephone', 'email', 'is_active',)
     list_filter = ('is_active',)
     search_fields = ['store_name', 'email']
 

@@ -1,22 +1,17 @@
 [
   {
     "fields": {
-      "username": "juanpablo",
-      "first_name": "Juan Pablo",
-      "last_name": "Scaletti",
+      "username": "johnpaul",
+      "first_name": "John Paul",
+      "last_name": "Machahuay",
       "is_deleted": false,
-      "groups": [
-        1
-      ],
       "is_active": true,
       "is_superuser": false,
       "is_staff": true,
       "last_login": "2015-07-09T04:01:30.943Z",
       "password": "pbkdf2_sha256$20000$p5JRnd1CdLMz$q0pcJq8lFIuZQkXb+vYWg137DB+HDUkKNlT6rnboyqo=",
-      "email": "juanpablo@lucumalabs.com",
-      "date_joined": "2015-07-09T03:10:47.382Z",
-      "created": "2015-07-09T03:10:47.382Z",
-      "modified": "2015-07-09T03:10:47.382Z"
+      "email": "john.cfmr.2009@gmail.com",
+      "date_joined": "2015-07-09T03:10:47.382Z"
     },
     "model": "users.user",
     "pk": 2
@@ -27,18 +22,13 @@
       "first_name": "Andres Jose",
       "last_name": "Caceres",
       "is_deleted": false,
-      "groups": [
-        4
-      ],
       "is_active": true,
       "is_superuser": false,
       "is_staff": true,
       "last_login": "2015-07-09T04:01:30.943Z",
       "password": "pbkdf2_sha256$20000$p5JRnd1CdLMz$q0pcJq8lFIuZQkXb+vYWg137DB+HDUkKNlT6rnboyqo=",
       "email": "andres@condortravel.com",
-      "date_joined": "2015-07-09T03:10:47.382Z",
-      "created": "2015-07-09T03:10:47.382Z",
-      "modified": "2015-07-09T03:10:47.382Z"
+      "date_joined": "2015-07-09T03:10:47.382Z"
     },
     "model": "users.user",
     "pk": 3
@@ -49,152 +39,15 @@
       "first_name": "Rosa",
       "last_name": "Hernandez",
       "is_deleted": false,
-      "groups": [
-        4
-      ],
       "is_active": true,
       "is_superuser": false,
       "is_staff": true,
       "last_login": "2015-07-09T04:01:30.943Z",
       "password": "pbkdf2_sha256$20000$p5JRnd1CdLMz$q0pcJq8lFIuZQkXb+vYWg137DB+HDUkKNlT6rnboyqo=",
       "email": "rosa@laborum.com",
-      "date_joined": "2015-07-09T03:10:47.382Z",
-      "created": "2015-07-09T03:10:47.382Z",
-      "modified": "2015-07-09T03:10:47.382Z"
+      "date_joined": "2015-07-09T03:10:47.382Z"
     },
     "model": "users.user",
     "pk": 4
-  },
-  {
-    "fields": {
-      "username": "gustavo",
-      "first_name": "Gustavo Adolfo",
-      "last_name": "Merino sanchez",
-      "is_deleted": false,
-      "groups": [
-        4
-      ],
-      "is_active": true,
-      "is_superuser": false,
-      "is_staff": true,
-      "last_login": "2015-07-09T04:01:30.943Z",
-      "password": "pbkdf2_sha256$20000$p5JRnd1CdLMz$q0pcJq8lFIuZQkXb+vYWg137DB+HDUkKNlT6rnboyqo=",
-      "email": "gustavo@cursostotales.com",
-      "date_joined": "2015-07-09T03:10:47.382Z",
-      "created": "2015-07-09T03:10:47.382Z",
-      "modified": "2015-07-09T03:10:47.382Z"
-    },
-    "model": "users.user",
-    "pk": 5
-  },
-  {
-    "fields": {
-      "username": "pepian",
-      "first_name": "Jose",
-      "last_name": "Pepian",
-      "is_deleted": false,
-      "groups": [
-        3
-      ],
-      "is_active": true,
-      "is_superuser": false,
-      "is_staff": true,
-      "last_login": "2015-07-09T04:01:30.943Z",
-      "password": "pbkdf2_sha256$20000$p5JRnd1CdLMz$q0pcJq8lFIuZQkXb+vYWg137DB+HDUkKNlT6rnboyqo=",
-      "email": "pepian@lucumalabs.com",
-      "date_joined": "2015-07-09T03:10:47.382Z",
-      "created": "2015-07-09T03:10:47.382Z",
-      "modified": "2015-07-09T03:10:47.382Z"
-    },
-    "model": "users.user",
-    "pk": 6
-  },
-  {
-    "fields": {
-      "username": "jonathan",
-      "first_name": "Jonathan",
-      "last_name": "Carrasco Garcia",
-      "is_deleted": false,
-      "groups": [
-        2
-      ],
-      "is_active": true,
-      "is_superuser": false,
-      "is_staff": true,
-      "last_login": "2015-07-09T04:01:30.943Z",
-      "password": "pbkdf2_sha256$20000$p5JRnd1CdLMz$q0pcJq8lFIuZQkXb+vYWg137DB+HDUkKNlT6rnboyqo=",
-      "email": "jonathan@lucumalabs.com",
-      "date_joined": "2015-07-09T03:10:47.382Z",
-      "created": "2015-07-09T03:10:47.382Z",
-      "modified": "2015-07-09T03:10:47.382Z"
-    },
-    "model": "users.user",
-    "pk": 7
-  },
-  {
-    "fields": {
-      "username": "Arturo",
-      "first_name": "arturo",
-      "last_name": "Bermejo",
-      "is_deleted": false,
-      "groups": [
-        2
-      ],
-      "is_active": true,
-      "is_superuser": false,
-      "is_staff": true,
-      "last_login": "2015-07-09T04:01:30.943Z",
-      "password": "pbkdf2_sha256$20000$p5JRnd1CdLMz$q0pcJq8lFIuZQkXb+vYWg137DB+HDUkKNlT6rnboyqo=",
-      "email": "arturo@lucumalabs.com",
-      "date_joined": "2015-07-09T03:10:47.382Z",
-      "created": "2015-07-09T03:10:47.382Z",
-      "modified": "2015-07-09T03:10:47.382Z"
-    },
-    "model": "users.user",
-    "pk": 8
-  },
-  {
-    "fields": {
-      "username": "Yuliana",
-      "first_name": "Yuliana",
-      "last_name": "Caceres",
-      "is_deleted": false,
-      "groups": [
-        3
-      ],
-      "is_active": true,
-      "is_superuser": false,
-      "is_staff": true,
-      "last_login": "2015-07-09T04:01:30.943Z",
-      "password": "pbkdf2_sha256$20000$p5JRnd1CdLMz$q0pcJq8lFIuZQkXb+vYWg137DB+HDUkKNlT6rnboyqo=",
-      "email": "yuliana@lucumalabs.com",
-      "date_joined": "2015-07-09T03:10:47.382Z",
-      "created": "2015-07-09T03:10:47.382Z",
-      "modified": "2015-07-09T03:10:47.382Z"
-    },
-    "model": "users.user",
-    "pk": 9
-  },
-  {
-    "fields": {
-      "username": "Ray",
-      "first_name": "Ray",
-      "last_name": "Fernandez",
-      "is_deleted": false,
-      "groups": [
-        3
-      ],
-      "is_active": true,
-      "is_superuser": false,
-      "is_staff": true,
-      "last_login": "2015-07-09T04:01:30.943Z",
-      "password": "pbkdf2_sha256$20000$p5JRnd1CdLMz$q0pcJq8lFIuZQkXb+vYWg137DB+HDUkKNlT6rnboyqo=",
-      "email": "x-ray@lucumalabs.com",
-      "date_joined": "2015-07-09T03:10:47.382Z",
-      "created": "2015-07-09T03:10:47.382Z",
-      "modified": "2015-07-09T03:10:47.382Z"
-    },
-    "model": "users.user",
-    "pk": 10
   }
 ]

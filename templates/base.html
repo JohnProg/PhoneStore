@@ -14,33 +14,32 @@
     {% endblock meta %}
 
     {% block styles %}
-        <link rel="stylesheet" href="{% static 'public/assets/stylesheets/plugins.min.css' %}">
-        <link rel="stylesheet" href="{% static 'public/assets/stylesheets/app.min.css' %}">
-{#        <link rel="shortcut icon" href="{% static 'images/user-default.png' %}">#}
-    <style>
-        @media only screen 
-            and (min-device-width : 768px) 
-            and (max-device-width : 1024px) 
-            and (orientation : portrait)
-            and (-webkit-min-device-pixel-ratio: 1)  {
-                .cont-slider img {
-                        height: 400px!important;
-                }
-                p {
-                    text-align: left !important;
-                }
-            }  
+      <link rel="stylesheet" href="{% static 'public/assets/stylesheets/plugins.min.css' %}">
+      <link rel="stylesheet" href="{% static 'public/assets/stylesheets/app.min.css' %}">
+      <style>
+          @media only screen
+              and (min-device-width : 768px)
+              and (max-device-width : 1024px)
+              and (orientation : portrait)
+              and (-webkit-min-device-pixel-ratio: 1)  {
+                  .cont-slider img {
+                          height: 400px!important;
+                  }
+                  p {
+                      text-align: left !important;
+                  }
+              }
 
-            @media only screen 
-            and (min-device-width : 400px) 
-            and (max-device-width : 768px) 
-            and (orientation : portrait)
-            and (-webkit-min-device-pixel-ratio: 1)  {
-                .carousel-inner>.active {
-                    display: inline-block;
-                }
-            }
-    </style>
+              @media only screen
+              and (min-device-width : 400px)
+              and (max-device-width : 768px)
+              and (orientation : portrait)
+              and (-webkit-min-device-pixel-ratio: 1)  {
+                  .carousel-inner>.active {
+                      display: inline-block;
+                  }
+              }
+      </style>
     {% endblock styles %}
 </head>
 

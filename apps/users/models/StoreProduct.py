@@ -7,6 +7,9 @@ from apps.product.models import Product
 
 
 class StoreProduct(models.Model):
+    """
+    Store Product model
+    """
     store = models.ForeignKey(settings.STORE_MODEL, verbose_name=_(u'Tienda'))
     product = models.ForeignKey(Product, verbose_name=_(u'Producto'))
     is_visible = models.BooleanField(
@@ -20,5 +23,5 @@ class StoreProduct(models.Model):
 
     class Meta:
         db_table = 'store_product'
-        verbose_name = "Productos para el carrusel"
-        verbose_name_plural = "Productos para el carrusel"
+        verbose_name = 'Productos para el carrusel'
+        verbose_name_plural = 'Productos para el carrusel'

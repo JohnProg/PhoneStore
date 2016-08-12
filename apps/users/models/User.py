@@ -4,6 +4,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import AbstractUser, UserManager
 
+from apps.commons.utils.database import SoftDeleteQuerySet, SoftDeleteMixin
 from apps.commons.utils.constants import GENDER
 from apps.commons.utils.validators import validate_dni, get_name_token
 from catalogo.settings import STATIC_URL, MEDIA_URL
@@ -13,26 +14,45 @@ def download_loc(instance, filename):
     return "user/%s" % get_name_token(filename)
 
 
-class User(AbstractUser):
+class CustomManager(UserManager):
+    def get_queryset(self):
+        return SoftDeleteQuerySet(self.model, using=self._db)
+
+    def not_deleted(self):
+        return self.get_queryset().not_deleted()
+
+    def deleted(self):
+        return self.get_queryset().deleted()
+
+
+class User(SoftDeleteMixin, AbstractUser):
     """
     User model
     """
     alphanumeric = RegexValidator(r'^[0-9]*$', 'solo se permite ingresar numeros.')
+
+    objects = CustomManager()
+
     avatar = models.ImageField(
         upload_to=download_loc,
-        blank=True, null=True
+        blank=True,
+        null=True
     )
     telephone = models.CharField(
         max_length=12,
+        null=True,
+        blank=True,
         verbose_name=_(u'Teléfono'),
         validators=[
             alphanumeric,
             MinLengthValidator(4),
             MaxLengthValidator(12),
-        ],
+        ]
     )
     cellphone = models.CharField(
         max_length=12,
+        null=True,
+        blank=True,
         verbose_name=_(u'Celular'),
         validators=[
             alphanumeric,
@@ -46,12 +66,14 @@ class User(AbstractUser):
         max_length=8
     )
     birth_date = models.DateField(
-        blank=True, null=True,
+        blank=True,
+        null=True,
         verbose_name=_(u'Fecha de nacimiento')
     )
     gender = models.IntegerField(
         choices=GENDER,
-        blank=True, null=True,
+        blank=True,
+        null=True,
         verbose_name=_(u'Sexo')
     )
 
@@ -75,8 +97,8 @@ class User(AbstractUser):
 
     class Meta:
         db_table = 'users'
-        verbose_name = "Usuario"
-        verbose_name_plural = "Usuarios"
+        verbose_name = 'Usuario'
+        verbose_name_plural = 'Usuarios'
         default_permissions = ()
         unique_together = ('email', )
 
